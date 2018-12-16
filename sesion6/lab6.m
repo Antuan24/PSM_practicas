@@ -135,6 +135,12 @@ imshow(IN);
 
 [R, G, B] = Canales(IN); %Completar la funcion Canales
 
+M = zeros(filas,cols,canales);
+
+M(:,:,1) = R(:,:,1);
+M(:,:,2) = G(:,:,2);
+M(:,:,3) = B(:,:,3);
+
 figure();
 imshow(R);
 
@@ -142,20 +148,29 @@ figure();
 imshow(G);
 
 figure();
-imshow(B);    
+imshow(B);
+
+figure();
+imshow(M); 
 
   case 5 %Apartado 5
 %----------------------------------------------------------------------
 % Histogramas de color
 %----------------------------------------------------------------------
 
-IN = imread('mezcla.jpg'); %modificar por el alumno
+IN = imread('figuras_geometricas.jpg'); %modificar por el alumno
 [filas, cols, canales] = size(IN);
 imshow(IN);
 
 %Completar por el alumno
 %Crear los canales de color de la imagen y luego calcular y representar los histogramas de cada
 %canal
+
+[R, G, B] = Canales(IN);
+
+hr = histogram(R, 1);
+hg = histogram(G, 2);
+hb = histogram(B, 3);
 
 figure();
 showHisto(hr);
@@ -166,14 +181,12 @@ showHisto(hg);
 figure();
 showHisto(hb);
 
-
-
   case 6 %Apartado 6
 %----------------------------------------------------------------------
 % Transformacion RGB a Brillo
 %----------------------------------------------------------------------
 
-IN = imread('cuadro.bmp'); %modificar por el alumno
+IN = imread('pijama.bmp'); %modificar por el alumno
 [filas, cols, canales] = size(IN);
 imshow(IN);
 
@@ -211,6 +224,7 @@ endfor
 %Crear un histograma para H 
 %y almacénalo en hh.
 
+hh = histogram(H,0);
 
 figure();
 showHisto(hh,360);

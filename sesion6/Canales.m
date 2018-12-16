@@ -12,9 +12,9 @@ function [R, G, B] = Canales(IN)
 %Los pixeles del canal con informacion util tendran el mismo valor que 
 %el pixel correspondiente de la imagen original en dicho canal
 
-r = zeros(filas,cols,canal);
-g = zeros(filas,cols,canal);
-b = zeros(filas,cols,canal);
+R = zeros(filas,cols,canal);
+G = zeros(filas,cols,canal);
+B = zeros(filas,cols,canal);
 
 R(:,:,1) = IN(:,:,1);
 G(:,:,2) = IN(:,:,2);
